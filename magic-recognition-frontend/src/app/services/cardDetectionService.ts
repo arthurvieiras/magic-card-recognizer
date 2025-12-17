@@ -80,7 +80,7 @@ export const detectCard = async (videoRef: VideoRef, canvasRef: CanvasRef, canva
 };
 
 // Draws a rectangle around the detected card
-const drawRectangle = (ctx, points) => {
+const drawRectangle = (ctx: CanvasRenderingContext2D, points: Point[]) => {
     if (points.length !== 4) return;
 
     ctx.strokeStyle = "red";
@@ -95,8 +95,8 @@ const drawRectangle = (ctx, points) => {
 };
 
 // Sorts corners of the card (Top-Left, Top-Right, Bottom-Right, Bottom-Left)
-const sortCorners = (contour) => {
-    const points = [];
+const sortCorners = (contour: any): Point[] => {
+    const points: Point[] = [];
     for (let i = 0; i < contour.rows; i++) {
         const pt = contour.data32S.slice(i * 2, i * 2 + 2);
         points.push(pt);

@@ -4,9 +4,9 @@ import { loadOpenCV } from "../utils/loadOpenCV";
 import { detectCard } from "../services/cardDetectionService";
 
 export default function WebcamCapture() {
-    const videoRef = useRef(null);
-    const canvasRef = useRef(null);
-    const canvasRef2 = useRef(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const canvasRef2 = useRef<HTMLCanvasElement>(null);
     const [bestMatch, setBestMatch] = useState(null);
     const [cvReady, setCvReady] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
