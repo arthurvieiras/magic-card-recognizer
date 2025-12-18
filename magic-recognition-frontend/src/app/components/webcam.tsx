@@ -1,13 +1,13 @@
-'use client'
+'use client';
 import { useRef, useState, useEffect } from "react";
-import { loadOpenCV } from "../utils/loadOpenCV";
+import { OpenCVLoader } from "../services/core/OpenCVLoader";
 import { detectCard } from "../services/cardDetectionService";
 
 export default function WebcamCapture() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasRef2 = useRef<HTMLCanvasElement>(null);
-    const [bestMatch, setBestMatch] = useState(null);
+    // const [bestMatch, setBestMatch] = useState(null);
     const [cvReady, setCvReady] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
 
@@ -23,7 +23,7 @@ export default function WebcamCapture() {
                 console.error("Error accessing webcam:", error);
             }
         };
-        loadOpenCV().then((cv) => {
+        OpenCVLoader.getInstance().load().then(() => {
             console.log("OpenCV.js Loaded");
             setCvReady(true);
         }).catch(err => console.error("Failed to load OpenCV", err));
@@ -62,7 +62,7 @@ export default function WebcamCapture() {
             {/* Status Message */}
             <p className="text-sm text-gray-500">
                 {cvReady ? "Detecting card..." : "Loading OpenCV..."}
-                {bestMatch && <p className="text-lg font-bold">Best Match: {bestMatch}</p>}
+                {/* {bestMatch && <p className="text-lg font-bold">Best Match: {bestMatch}</p>} */}
             </p>
         </div>
     );
