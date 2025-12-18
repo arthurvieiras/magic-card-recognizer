@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Magic: The Gathering Card Recognition
+
+This is a [Next.js](https://nextjs.org) project designed to detect and recognize Magic: The Gathering (MTG) cards using a webcam. It leverages OpenCV.js for image processing to identify cards in real-time.
+
+## Features
+
+- **Real-time Card Detection:** Uses the webcam to detect cards.
+- **OpenCV.js Integration:** Performs image processing directly in the browser.
+- **Next.js Framework:** Built on top of the latest Next.js features.
 
 ## Getting Started
 
@@ -16,9 +24,13 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Allow the browser to access your webcam to start detecting cards.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+
+- `src/app/components/webcam.tsx`: Contains the webcam capture and card detection logic.
+- `src/app/services/cardDetectionService.ts`: Service for processing images and detecting cards (implied).
+- `src/app/utils/loadOpenCV.ts`: Utility to load OpenCV.js.
 
 ## Learn More
 
@@ -26,8 +38,6 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
